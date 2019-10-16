@@ -44,7 +44,7 @@
         </div>
         <div class="flex my-8">
             <div class="w-1/2">
-                Don't see what you're looking for? Hit me up on <a href="https://twitter.com/vmitchell85" class="text-blue-800 underline">twitter</a>.
+                Don't see what you're looking for? Hit me up on <a href="https://twitter.com/vmitchell85" class="text-blue-800 underline">twitter</a> or submit a <a href="https://github.com/vmitchell85/coding-streams" class="text-blue-800 underline">PR</a>.
             </div>
             <div class="w-1/2 text-right">
                 This is a project by <a href="https://vincemitchell.me" class="text-blue-800 underline">Vince Mitchell</a>.
