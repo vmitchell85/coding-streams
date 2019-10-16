@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Term;
 use App\Stream;
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
@@ -14,7 +15,7 @@ class GetTwitchStreams extends Command
      *
      * @var string
      */
-    protected $signature = 'fetch:twitch {query}';
+    protected $signature = 'fetch:twitch';
 
     /**
      * The console command description.
@@ -40,25 +41,27 @@ class GetTwitchStreams extends Command
      */
     public function handle()
     {
-        $query = $this->argument('query');
         do {
             // 509670 is Science & Technology
             $result = Twitch::getStreamsByGame(509670, ['first' => 100], isset($result) ? $result->next() : null);
 
             foreach ($result->data as $item) {
-                if (Str::contains(strtolower($item->title), $query)) {
-                    Stream::updateOrCreate([
-                        'twitch_id' => $item->id,
-                        'query' => $query,
-                    ], [
-                        'title' => $item->title,
-                        'user_name' => $item->user_name,
-                        'viewer_count' => $item->viewer_count,
-                        'image' => str_replace('{width}x{height}' , '640x360', $item->thumbnail_url),
-                        'query' => $query,
-                        'updated_at' => now()
-                    ]);
+                foreach(Term::all() as $term) {
+                    if (Str::contains(strtolower($item->title), $term->text)) {
+                        Stream::updateOrCreate([
+                            'twitch_id' => $item->id,
+                            'query' => $term->text,
+                        ], [
+                            'title' => $item->title,
+                            'user_name' => $item->user_name,
+                            'viewer_count' => $item->viewer_count,
+                            'image' => str_replace('{width}x{height}' , '640x360', $item->thumbnail_url),
+                            'query' => $term->text,
+                            'updated_at' => now()
+                        ]);
+                    }
                 }
+
             }
         } while ($result->count() > 0);
     }
