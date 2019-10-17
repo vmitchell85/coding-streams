@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateStreamsTable extends Migration
 {
@@ -16,7 +16,8 @@ class CreateStreamsTable extends Migration
         Schema::create('streams', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->bigInteger('twitch_id');
+            $table->string('identifier');
+            $table->string('service');
             $table->string('user_name');
             $table->bigInteger('viewer_count');
             $table->string('image');

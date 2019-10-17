@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Stream;
-use Illuminate\Http\Request;
 
 class StreamController extends Controller
 {
