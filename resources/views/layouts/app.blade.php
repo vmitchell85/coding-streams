@@ -44,7 +44,7 @@
     <div class="mx-4 flex flex-col md:w-3/4 md:mx-auto text-sm">
         <a name="about"><h2 class="font-bold text-2xl text-red-600 border-b border-red-600">About</h2></a>
         <div class="mt-4">
-            This site shows all streams that are currently live within the last five minutes in the "Science & Technology" 'Game' that include the following terms in their titles:
+            This site shows all streams that are currently live within the last five minutes using the following terms:
             <div class="flex flex-wrap font-medium mt-4">
                 @foreach(App\Term::select('text')->get()->map->text->toArray() as $term)
                     <div class="bg-gray-700 px-2 py-1 rounded text-white mr-2 mt-2">{{$term}}</div>
