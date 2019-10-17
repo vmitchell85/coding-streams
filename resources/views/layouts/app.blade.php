@@ -7,6 +7,15 @@
     <title>{{ config('app.name') }}</title>
     <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        .text-youtube {
+            color: #FF0000;
+        }
+        .bg-youtube {
+            background-color: #FF0000;
+        }
+        .border-youtube {
+            border-color: #FF0000;
+        }
         .text-twitch {
             color: #9147ff;
         }
