@@ -14,7 +14,7 @@
                     @foreach($streams as $stream)
                         @if ($stream->service == 'twitch')
                             <a href="https://twitch.tv/{{$stream->user_name}}" target="_blank" class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 hover:opacity-75 p-4">
-                                <div class="relative w-full bg-cover border-4 border-twitch" style="background-image: url('{{$stream->image}}'); padding-top: 56.25%;">
+                                <div class="relative w-full bg-cover bg-center border-4 border-twitch" style="background-image: url('{{$stream->image}}'); padding-top: 56.25%;">
                                     <div class="right-0 bottom-0 absolute bg-twitch text-white font-bold flex items-center justify-center w-16 rounded-tl-lg h-8">
                                         <svg class="fill-current text-white w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"/></svg>
                                         {{$stream->viewer_count}}
@@ -29,7 +29,7 @@
                         @endif
                         @if ($stream->service == 'youtube')
                             <a href="https://youtube.com/watch?v={{$stream->identifier}}" target="_blank" class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 hover:opacity-75 p-4">
-                                <div class="relative w-full bg-cover border-4 border-youtube" style="background-image: url('{{$stream->image}}'); padding-top: 56.25%;">
+                                <div class="relative w-full bg-cover bg-center border-4 border-youtube" style="background-image: url('{{$stream->image}}'); padding-top: 56.25%;">
                                     <div class="right-0 bottom-0 absolute bg-youtube text-white font-bold flex items-center justify-center w-16 rounded-tl-lg h-8">
                                         <svg class="fill-current text-white w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"/></svg>
                                         {{$stream->viewer_count}}
