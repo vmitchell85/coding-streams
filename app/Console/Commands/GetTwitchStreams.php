@@ -46,22 +46,21 @@ class GetTwitchStreams extends Command
             $result = Twitch::getStreamsByGame(509670, ['first' => 100], isset($result) ? $result->next() : null);
 
             foreach ($result->data as $item) {
-                foreach(Term::all() as $term) {
+                foreach (Term::all() as $term) {
                     if (Str::contains(strtolower($item->title), $term->text)) {
                         Stream::updateOrCreate([
-                            'twitch_id' => $item->id,
+                            'identifier' => $item->id,
                             'query' => $term->text,
+                            'service' => 'twitch'
                         ], [
                             'title' => $item->title,
                             'user_name' => $item->user_name,
                             'viewer_count' => $item->viewer_count,
-                            'image' => str_replace('{width}x{height}' , '640x360', $item->thumbnail_url),
-                            'query' => $term->text,
+                            'image' => str_replace('{width}x{height}', '640x360', $item->thumbnail_url),
                             'updated_at' => now()
                         ]);
                     }
                 }
-
             }
         } while ($result->count() > 0);
     }
