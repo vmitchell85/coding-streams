@@ -4,7 +4,6 @@
     <div class="flex flex-wrap border-b border-red-600 py-4 text-gray-800">
         @foreach($groups as $name => $streams)
             <a href="#{{$name}}" class="mr-4 border-b-2 border-transparent hover:text-blue-800 hover:border-blue-800">{{$name}}</a>
-            <a href="#{{$name}}" class="mr-4 border-b-2 border-transparent hover:text-blue-800 hover:border-blue-800">{{$name}}</a>
         @endforeach
     </div>
     <div class="mt-4">
