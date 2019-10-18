@@ -24,9 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('streams:cleanup')->everyMinute();
         $schedule->command('fetch:twitch')->everyFiveMinutes();
         // $schedule->command('fetch:youtube')->everyFiveMinutes();
-        $schedule->command('streams:cleanup')->everyFiveMinutes();
     }
 
     /**
