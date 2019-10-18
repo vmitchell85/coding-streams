@@ -41,9 +41,14 @@ class GetTwitchStreams extends Command
      */
     public function handle()
     {
+        $this->fetchStreamsByGameId(21548); // Basic Programming
+        $this->fetchStreamsByGameId(509670); // Science & Technology
+    }
+
+    public function fetchStreamsByGameId($game_id)
+    {
         do {
-            // 509670 is Science & Technology
-            $result = Twitch::getStreamsByGame(509670, ['first' => 100], isset($result) ? $result->next() : null);
+            $result = Twitch::getStreamsByGame($game_id, ['first' => 100], isset($result) ? $result->next() : null);
 
             foreach ($result->data as $item) {
                 foreach (Term::all() as $term) {
